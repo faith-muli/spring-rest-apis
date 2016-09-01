@@ -17,6 +17,11 @@ public interface UserService {
 
     User updateUser(long id, User user);
 
+   List<User> findUserByEmail(String email);
+
+    List<User> findUserByNameOrEmail(String search);
+
+
 
 
 }

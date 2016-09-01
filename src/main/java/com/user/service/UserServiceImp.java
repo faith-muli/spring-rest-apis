@@ -29,6 +29,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public List<User> findAll()
+
     {
         return userRepository.findAll();
     }
@@ -40,6 +41,16 @@ public class UserServiceImp implements UserService {
         updateUser.setEmail(user.getEmail());
         return  userRepository.save(updateUser);
 
+    }
+
+    @Override
+    public List<User> findUserByEmail(String email) {
+        return  userRepository.findByEmailIgnoreCase(email);
+    }
+
+    @Override
+    public List<User> findUserByNameOrEmail(String search) {
+        return userRepository.findUserByNameOrEmail(search, search);
     }
 
 
